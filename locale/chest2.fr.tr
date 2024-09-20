@@ -1,0 +1,21 @@
+# textdomain: chest2
+
+# chest2 french translation
+# chest2 traduction en français
+# by d-stephane
+
+Only U=Seulement vous
+Members=Membres
+Public=Public
+Save=Enregistrer
+Members List=Liste des membres
+(Inventory Access)=(Accès à l'inventaire)
+
+Connected to=Connecté avec
+Remote (Disconnected)=Télécommande (Deconnectée)
+Remote (Disconnected)=Télécommande (Deconnectée)
+Punch a chest to connect=Tappez le coffre pour la connecter
+Remote (Connected)=Télécommande (Connectée)
+Remote (Connected)=Télécommande (Connectée)
+Punch anywhere to open=Tappez n'importe ou pour ouvrir le coffre
+Punch a chest to reconnect=Tappez le coffre pour reconnecter

@@ -42,11 +42,11 @@ chest2.showform = function(pos,player)
     gui=gui.."size[16,10]"
 
     if op==0 then
-        open="Only U"
+        open=chest2.S("Only U")
     elseif op==1 then
-        open="Members"
+        open=chest2.S("Members")
     else
-        open="Public"
+        open=chest2.S("Public")
     end
 
 	if title=="" then
@@ -55,10 +55,10 @@ chest2.showform = function(pos,player)
 
 	gui=gui .. ""
 
-    .."button[12,1; 1.9,1;save;Save]"
+    .."button[12,1; 1.9,1;save;" .. chest2.S("Save") .. "]"
     .."button[12,2; 1.9,1;open;" .. open .."]"
-    .."label[12, 3;Members List]"
-    .."label[12, 3.4;(Inventory Access)]"
+    .."label[12, 3;" .. chest2.S("Members List") .. "]"
+    .."label[12, 3.4;" .. chest2.S("(Inventory Access)") .. "]"
     .."textarea[12.2,4;4,5;names;;" .. names  .."]"
 
     .."button[-0.2,7;1,1;prev;<]"
@@ -251,7 +251,7 @@ chest2.connect_remote = function (itemstack, user, pointed_thing)
                 con_meta:set_string("connection", chest2.tools.pos2str(pointed_thing.under))
                 local meta_dat = get_context(user:get_player_name())
                 meta_dat.pos = pointed_thing.under
-                minetest.chat_send_player(user:get_player_name(), "Connected to "..minetest.pos_to_string(pointed_thing.under))
+                minetest.chat_send_player(user:get_player_name(), chest2.S("Connected to").." "..minetest.pos_to_string(pointed_thing.under))
                 return connected
             end
         end
@@ -259,8 +259,8 @@ chest2.connect_remote = function (itemstack, user, pointed_thing)
 end
 
 minetest.register_craftitem("chest2:remote_off", {
-    short_description = "Remote (Disconnected)",
-    description = "Remote (Disconnected)\nPunch a chest to connect",
+    short_description = chest2.S("Remote (Disconnected)"),
+    description = chest2.S("Remote (Disconnected)") .. "\n" .. chest2.S("Punch a chest to connect"),
     inventory_image = "chest2_remote_off.png",
     stack_max = 1,
     on_use = chest2.connect_remote,
@@ -278,7 +278,7 @@ chest2.use_remote = function (itemstack, user, pointed_thing)
             if node.name == "chest2:chest" then
                 local con_meta = itemstack:get_meta()
                 con_meta:set_string("connection", chest2.tools.pos2str(pointed_thing.under))
-                minetest.chat_send_player(user:get_player_name(), "Connected to "..minetest.pos_to_string(pointed_thing.under))
+                minetest.chat_send_player(user:get_player_name(), chest2.S("Connected to").." "..minetest.pos_to_string(pointed_thing.under))
                 local meta_dat = get_context(user:get_player_name())
                 meta_dat.pos = pointed_thing.under
                 pointed_chest = true
@@ -343,8 +343,8 @@ chest2.use_remote = function (itemstack, user, pointed_thing)
 end
 
 minetest.register_craftitem("chest2:remote_on", {
-    short_description = "Remote (Connected)",
-    description = "Remote (Connected)\nPunch anywhere to open\nPunch a chest to reconnect",
+    short_description = chest2.S("Remote (Connected)"),
+    description = chest2.S("Remote (Connected)").."\n"..chest2.S("Punch anywhere to open").."\n"..chest2.S("Punch a chest to reconnect"),
     inventory_image = "chest2_remote_on.png",
     stack_max = 1,
     on_use = chest2.use_remote,

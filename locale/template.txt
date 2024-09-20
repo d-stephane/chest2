@@ -1,0 +1,19 @@
+# textdomain: chest2
+
+# chest2 translation template
+
+Only U=
+Members=
+Public=
+Save=
+Members List=
+(Inventory Access)=
+
+Connected to=
+Remote (Disconnected)=
+Remote (Disconnected)=
+Punch a chest to connect=
+Remote (Connected)=
+Remote (Connected)=
+Punch anywhere to open=
+Punch a chest to reconnect=
